@@ -68,12 +68,7 @@ public class Core {
 
         }
 
-        if (!messages.isEmpty() && !messages.get(0).isOut()) {
-                /*
-                messageId - максимально полученный ID, нужен, чтобы не было ошибки 10 internal server error,
-                который является ограничением в API VK. В случае, если ts слишком старый (больше суток),
-                а max_msg_id не передан, метод может вернуть ошибку 10 (Internal server error).
-                 */
+        if (!messages.isEmpty() && !messages.get(0).isOut()) {               
             int messageId = messages.get(0).getId();
             if (messageId > maxMsgId){
                 maxMsgId = messageId;
